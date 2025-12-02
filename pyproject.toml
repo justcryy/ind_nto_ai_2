@@ -1,0 +1,72 @@
+[project]
+name = "individual-stage-baseline"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "werserk",email = "werserk@inbox.ru"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas (>=2.3.3,<3.0.0)",
+    "scikit-learn (>=1.7.2,<2.0.0)",
+    "lightgbm (>=4.6.0,<5.0.0)",
+    "joblib (>=1.5.2,<2.0.0)",
+    "transformers (>=4.30.0)",
+    "torch (>=2.0.0)",
+    "sentencepiece (>=0.1.99)",
+    "gdown (>=5.2.0,<6.0.0)",
+    "tqdm (>=4.67.1,<5.0.0)",
+    "pyarrow (>=22.0.0,<23.0.0)",
+]
+
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.14.2"
+pre-commit = "^4.3.0"
+
+[tool.ruff]
+line-length = 120
+preview = true
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle: Enforces PEP 8 style errors
+    "F", # pyflakes: Detects undefined or unused variables
+    "W", # pycodestyle: Additional style warnings
+    "I", # isort: Ensures imports are properly sorted
+    "UP",  # pyupgrade: Modernizes code to use newer Python features
+    "B",   # flake8-bugbear: Highlights common bugs and bad practices
+    "C4",  # flake8-comprehensions: Suggests improvements for comprehensions
+    "SIM", # flake8-simplify: Simplifies complex expressions
+    "Q",   # flake8-quotes: Enforces consistent usage of quotes
+    "RET", # flake8-return: Ensures return statements are consistent
+    "ARG", # flake8-unused-arguments: Warns about unused function arguments
+    "TCH", # flake8-type-checking: Improves type-checking practices
+    "ANN", # flake8-annotations: Encourages the use of type annotations
+    "PD",  # pandas-vet: Provides recommendations for using pandas
+    "NPY", # NumPy-specific rules: Offers best practices for NumPy
+    "RUF", # Ruff-specific rules: Adds optimizations specific to Ruff
+    "C90", # McCabe complexity checker
+]
+ignore = [
+    "CPY001", # Ignore annotations for self
+    "RUF001", # Ignore Cyrillic to Latin transliteration rule
+    "RUF002", # Ignore Cyrillic to Latin transliteration rule in docstring
+    "RUF003", # Ignore Cyrillic to Latin transliteration rule
+    "PD901", # Allow using the generic variable name `df`
+]
+per-file-ignores = { "tests/**/*" = ["ARG001", "ARG002"] }
+

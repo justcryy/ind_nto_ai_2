@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# IDE
+.mypy_cache/
+.ruff_cache/
+.DS_Store/
+.vscode/
+.idea/
+
+# Project specific
+data/
+output/
+
+# Temporary files
+*.tmp
+*.log
+logs/
+.monitor_pid
+solution.csv
